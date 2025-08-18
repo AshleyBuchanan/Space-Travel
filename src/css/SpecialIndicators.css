@@ -1,0 +1,22 @@
+.loading {
+    color: var(--font-high);
+}
+
+.note {
+    color: var(--font-high);
+    opacity: .5;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.indicator-destroying {
+    color: var(--destroy-button-font);
+}
+
+.indicator-transporting {
+    color: yellow;
+}
+
+.spacecraft-hovered-name {
+    color: var(--font-high);
+}

@@ -1,0 +1,33 @@
+.card-image-component {
+    z-index: -10;
+    flex: 2;
+    overflow: hidden;
+    opacity: .25;
+    transition: all 500ms ease;
+}
+
+.card-image-component.hovered {
+    opacity: 1;
+}
+
+.card-image-component.prev-hovered,
+.card-image-component.next-hovered {
+    opacity: .3;
+}
+
+.card-image-component-img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    box-shadow:
+        0 0 24px var(--glow-medium);
+}
+
+.card-image-component-img.large {
+    height: 150%;
+    translate: -55% -16%;
+    aspect-ratio: 1.5 / 1;
+    box-shadow: none;
+}

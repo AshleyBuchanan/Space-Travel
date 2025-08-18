@@ -1,0 +1,28 @@
+.card-buttons-component {
+    flex: 1.75;
+    max-width: 136px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: .15;
+
+    transition: all 500ms ease;
+}
+
+.card-buttons-component.use-row {
+    flex-direction: row;
+}
+
+.card-buttons-component.hovered {
+    opacity: 1;
+}
+
+.card-buttons-component.prev-hovered,
+.card-buttons-component.next-hovered {
+    opacity: .25;
+}
+
+.card-buttons-component.padded {
+    padding: 24px;
+}

@@ -1,0 +1,17 @@
+.spacecraft-icon-component {
+    width: 32px;
+    height: 32px;
+}
+
+.spacecraft-icon-img-component {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid var(--font-medium);
+    transition: all 500ms ease;
+}
+
+.spacecraft-icon-img-component:hover {
+    border-color: var(--font-high);
+}

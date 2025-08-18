@@ -1,0 +1,23 @@
+.spacecraft-list-component {
+    flex: 2;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding-top: 24px;
+
+    opacity: .25;
+
+    transition: all 500ms ease;
+}
+
+.spacecraft-list-component.hovered {
+    opacity: 1;
+}
+
+.spacecraft-list-component.prev-hovered,
+.spacecraft-list-component.next-hovered {
+    opacity: .3;
+}

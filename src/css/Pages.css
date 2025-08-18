@@ -1,0 +1,53 @@
+.sub-button {
+    flex: 1;
+    min-height: 20px;
+    max-height: 24px;
+    min-width: calc(136px - 4px);
+    align-content: center;
+
+    text-align: center;
+    text-decoration: none;
+
+    border: 2px solid var(--font-high);
+    color: var(--font-high);
+    opacity: 35%;
+}
+
+.sub-button.destroy {
+    color: var(--destroy-button-font);
+    border-color: var(--destroy-button-font);
+    cursor: pointer;
+}
+
+.sub-button.destroy-inverted {
+    color: black;
+    background-color: var(--destroy-button-font);
+    border-color: var(--destroy-button-font);
+}
+
+.sub-button.build {
+    color: black;
+    background-color: yellow;
+    border-color: orange;
+}
+
+.sub-button.build:active {
+    box-shadow:
+        inset 0 0 12px var(--glow-high),
+        0 0 24px var(--glow-high);
+}
+
+.sub-button:hover {
+    opacity: 80%;
+}
+
+.sub-button:active,
+.sub-button.active {
+    opacity: 100%;
+}
+
+.sub-button.hidden {
+    opacity: 0;
+    user-select: none;
+
+}

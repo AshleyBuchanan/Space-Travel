@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Visitor';
+    src: url('../assets/visitor1.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --background: hsla(0, 0%, 0%, 100%);
+    --font-high: hsla(136, 100%, 50%, 100%);
+    --font-medium: hsla(136, 100%, 50%, 25%);
+    --font-dim: hsla(136, 100%, 50%, 15%);
+    --glow-high: hsla(136, 100%, 50%, 25%);
+    --glow-medium: hsla(136, 100%, 50%, 10%);
+    --destroy-button-font: hsla(0, 100%, 50%, 100%);
+    --destroy-button-glow: hsla(0, 100%, 75%, 25%);
+}
+
+* {
+    border-radius: 2px;
+    user-select: none;
+}
+
+html {
+    margin: auto;
+    width: 66vw;
+    height: 97vh;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Visitor';
+    color: var(--font-medium);
+    background-color: var(--background);
+    margin: 24px 48px;
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}

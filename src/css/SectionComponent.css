@@ -1,0 +1,13 @@
+.section-component {
+    height: 100%;
+    width: 900px;
+    margin: 0 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.section-component::--webkit-scrollbar {
+    /*safari, chrome, edge */
+    display: none;
+}

@@ -1,0 +1,27 @@
+.card-component {
+    height: 128px;
+    border: 2px solid var(--font-dim);
+
+    display: flex;
+    flex-direction: row;
+    transition: all 500ms ease;
+}
+
+.card-component.padded {
+    height: calc(128px - 48px);
+    padding: 24px;
+}
+
+.card-component.hovered {
+    border-color: var(--font-high);
+    color: var(--font-high);
+    box-shadow:
+        inset 0 0 12px var(--glow-high),
+        0 0 24px var(--glow-high);
+}
+
+.card-component.prev-hovered,
+.card-component.next-hovered {
+    border-color: var(--font-medium);
+    color: var(--font-medium);
+}

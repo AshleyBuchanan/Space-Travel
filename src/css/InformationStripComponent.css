@@ -1,0 +1,13 @@
+.information-strip {
+    display: flex;
+    flex-direction: column-reverse;
+
+    opacity: .75;
+
+    padding-bottom: calc(24px - 4px);
+}
+
+.information-strip.adjusted {
+    height: 100%;
+    translate: -24px -4px;
+}

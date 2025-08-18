@@ -1,0 +1,16 @@
+.article {
+    color: var(--font-dim);
+    border-color: var(--font-dim);
+
+    transition: all 500ms ease;
+}
+
+.article.hovered {
+    color: var(--font-high);
+}
+
+.article.prev-hovered,
+.article.next-hovered {
+    border-color: var(--font-medium);
+    color: var(--font-medium);
+}
