@@ -103,7 +103,7 @@ const SpacecraftInventoryPage = () => {
                                         <CardInformationComponent>
                                             <InformationStripComponent adjustment={true}>
                                                 <div>
-                                                    <span className="article-label-component">Capacity : </span>{craft.capacity}
+                                                    <span className="article-label-component">Capacity : </span>{Number(craft.capacity || 0).toLocaleString()}
                                                 </div>
                                                 <div>
                                                     {(craft.description || '').slice(0, 42) + '...'}
