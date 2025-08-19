@@ -1,3 +1,7 @@
+// i feel that there should be an indication of the 
+// building occurring whilst the api does its
+//thing. also a building complete indicator.
+
 import theAPI from '../services/SpaceTravelApi';
 import { useEffect, useState } from 'react';
 

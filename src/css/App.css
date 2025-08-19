@@ -22,8 +22,8 @@
 }
 
 html {
-    margin: auto;
-    width: 66vw;
+    /* margin: auto; */
+    width: 100vw;
     height: 97vh;
     overflow: hidden;
 }
