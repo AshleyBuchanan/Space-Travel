@@ -22,6 +22,7 @@ const SpacecraftDetailsPage = () => {
 
     // unified form state for both existing + new craft
     const [formData, setFormData] = useState({
+        id: '',
         designation: '',
         capacity: '',
         description: '',
@@ -33,11 +34,19 @@ const SpacecraftDetailsPage = () => {
         setFormData(prev => ({ ...prev, [id]: value }));
     };
 
-    const handleSubmit = async (e, craft) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            //will update here
+            console.log(formData.id);
+            //api delete
+            await theAPI.destroySpacecraftById({ id: formData.id });
+            await theAPI.buildSpacecraft({
+                name : formData.designation, 
+                capacity: formData.capacity, 
+                description: formData.description, 
+                pictureUrl: formData.pictureUrl
+            });
         } catch (err) {
             throw new Error(err);
         };
@@ -60,13 +69,14 @@ const SpacecraftDetailsPage = () => {
                         useEffect(() => {
                             if (craft) {
                                 setFormData({
+                                    id: craft.id ?? '',
                                     designation: craft.name ?? '',
                                     capacity: craft.capacity != null ? String(craft.capacity) : '',
                                     description: craft.description ?? '',
                                     pictureUrl: craft.pictureUrl ?? '',
                                 });
                             } else {
-                                setFormData({ designation: '', capacity: '', description: '', pictureUrl: '' });
+                                setFormData({ id: '', designation: '', capacity: '', description: '', pictureUrl: '' });
                             }
                         }, [craft]);
 
@@ -133,7 +143,7 @@ const SpacecraftDetailsPage = () => {
                                         <ButtonComponent 
                                             type="build" 
                                             label="Update"
-                                            // handleClick //will be finished later
+                                            handleClick={handleSubmit}
                                         />
                                     </CardButtonsComponent>
 

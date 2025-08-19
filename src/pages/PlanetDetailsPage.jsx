@@ -21,25 +21,36 @@ const PlanetDetailsPage = () => {
     const navigating = navigation.state === 'loading';
 
     const [formData, setFormData] = useState({
-        designation: '',
-        population: '',
+        id: '',
+        name: '',
+        currentPopulation: '',
         pictureUrl: '',
     });
 
     const handleChange = (e) => {
+        console.log(e.target.id)
         const { id, value } = e.target;
         setFormData(prev => ({ ...prev, [id]: value }));
     };
 
-    const handleSubmit = async (e, planet) => {
-        e.preventDefault();
-
-        try {
-            //will update here
-        } catch (err) {
-            throw new Error(err);
-        };
-    };
+    //this will be an external implementation later on.
+    // const handleSubmit = async (e, planet) => {
+    //     e.preventDefault();
+    // 
+    //     try {
+    //         console.log(formData.id);
+    //         //api delete
+    //         await theAPI.destroySpacecraftById({ id: formData.id });
+    //         await theAPI.buildSpacecraft({
+    //             name : formData.designation, 
+    //             currentPopulation: formData.currentPopulation, 
+    //             description: formData.description, 
+    //             pictureUrl: formData.pictureUrl
+    //         });        
+    //     } catch (err) {
+    //         throw new Error(err);
+    //     };
+    // };
 
     return (
         <SectionComponent>
@@ -56,12 +67,13 @@ const PlanetDetailsPage = () => {
                         useEffect(() => {
                             if (planet) {
                                 setFormData({
-                                    designation: planet.name ?? '',
-                                    population: planet.currentPopulation != null ? String(planet.currentPopulation) : '',
+                                    id: planet.id ?? '',
+                                    name: planet.name ?? '',
+                                    currentPopulation: planet.currentPopulation != null ? String(planet.currentPopulation) : '',
                                     pictureUrl: planet.pictureUrl ?? '',
                                 });
                             } else {
-                                setFormData({ designation: '', population: '', pictureUrl: '' });
+                                setFormData({ id: '', designation: '', population: '', pictureUrl: '' });
                             }
                         }, [planet]);
 
@@ -94,9 +106,9 @@ const PlanetDetailsPage = () => {
                                     <BlockComponent>
                                         <input
                                             type="text"
-                                            id="designation"
+                                            id="name"
                                             placeholder="Designation"
-                                            value={formData.designation}
+                                            value={formData.name}
                                             onChange={handleChange}
                                             autoFocus
                                             
@@ -106,9 +118,9 @@ const PlanetDetailsPage = () => {
                                     <BlockComponent>
                                         <input
                                             type="text"
-                                            id="population"
+                                            id="currentPopulation"
                                             placeholder="Population"
-                                            value={formData.population}
+                                            value={formData.currentPopulation}
                                             onChange={handleChange}
                                         />
                                     </BlockComponent>
@@ -126,11 +138,12 @@ const PlanetDetailsPage = () => {
                                         <BackButtonComponent 
                                             label="Back" 
                                         />
-                                        <ButtonComponent 
+                                        {/* this will be an external implementation later on*/}
+                                        {/* <ButtonComponent 
                                             type="build" 
                                             label="Update"
-                                            // handleClick //will be finished later
-                                        />
+                                            handleClick={handleSubmit}
+                                        /> */}
                                     </CardButtonsComponent>
 
                                 </ContainerComponent>
@@ -149,7 +162,7 @@ const planetDetailsLoader = async ({ params }) => {
 
     const planetsPromise = theAPI.getPlanets().then((response) => {
         if (response.ok === false) {
-            throw new Error('Could not retrieve the spacecraft.');
+            throw new Error('Could not retrieve the planet.');
         }
         
         const result = (response.data ?? []).find(p => p.id === id) ?? null;

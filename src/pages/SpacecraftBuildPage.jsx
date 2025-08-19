@@ -39,23 +39,22 @@ const SpacecraftBuildPage = () => {
     }, [] );
 
     const handleChange = (e) => {
-        setFormData(data => ({
-            ...data, 
-            [e.target.id]: e.target.value
-        }));
+        const { id, value } = e.target;
+        setFormData(prev => ({ ...prev, [id]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (formData.designation && formData.capacity && formData.description && formData.pictureUrl)
             {
                 try {
-                    theAPI.buildSpacecraft({
+                    await theAPI.buildSpacecraft({
                         name : formData.designation, 
                         capacity: formData.capacity, 
                         description: formData.description, 
-                        pictureUrl: formData.pictureUrl});
+                        pictureUrl: formData.pictureUrl
+                    });
                 } catch (err) {
                     throw new Error(err)
                 } finally {
